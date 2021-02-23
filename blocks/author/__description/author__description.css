@@ -1,0 +1,9 @@
+.author__description {
+  position: absolute;
+  padding-left: 150px;
+  padding-top: 16px;
+  font-size: 18px;
+  line-height: 1.22;
+  font-weight: normal;
+  margin: 0;
+}
