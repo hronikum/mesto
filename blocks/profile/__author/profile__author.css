@@ -1,0 +1,16 @@
+.profile__author {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 465px) {
+  .profile__author {
+    margin: 0;
+    margin-top: 26px;
+    justify-content: center;
+    align-items: center;
+   
+  }
+}

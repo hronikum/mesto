@@ -13,52 +13,69 @@
       <img src="./images/logo.svg" class="header__logo" alt="Mesto: Russia">
     </a>
   </header>
-  <!-- <main class="main">
+  <main class="main">
     <section class="profile">
       <img class="profile__avatar" src="./images/avatar.jpg" alt="Жак-Ив Кусто в красной шапочке">
-      <h1 class="author__name">Жак-Ив Кусто</h1>
-      <input type="image" src="./images/profile__edit-btn.svg">
-      <p class="author__description">Покоритель океанов</p>
-     
-      <input class="profile__add-btn" type="image" src="./images/profile__add-btn.svg"> 
+      <div class="profile__author">
+        <span class="profile__author profile__author_no-wrap">
+          <h1 class="profile__author-name">Жак-Ив Кусто</h1>
+          <input class="profile__edit-btn" type="image" src="./images/profile__edit-btn.svg" alt="Редактировать имя и описание">
+      </span>
+        <p class="profile__author-description">Исследователь океана</p>
+    </div>
+    
+    <input class="profile__add-btn" type="image" src="./images/profile__add-btn.svg"> 
     </section>
     <section class="elements">
       <article class="element">
         <img src="./images/blake-richard-verdoorn-cssvEZacHvQ-unsplash.jpg" alt="" class="element__image">
-        <h2 class="element__title">Карачаево-Черкессия</h2>
-        <input class="element__like-btn"  type="image"  src="./images/element__like-btn.svg"></input>
+        <div class="element__info">
+          <h2 class="element__title">Карачаево-Черкессия</h2>
+          <input class="element__like-btn"  type="image"  src="./images/element__like-btn.svg"></input>
+        </div>
+        
       </article>
       <article class="element">
         <img src="./images/dave-hoefler-lsoogGC_5dg-unsplash.jpg" alt="" class="element__image">
-        <h2 class="element__title">Карачаево-Черкессия</h2>
-        <button class="element__like-btn"></button>
+        <div class="element__info">
+          <h2 class="element__title">Красная поляна</h2>
+          <input class="element__like-btn"  type="image"  src="./images/element__like-btn.svg"></input>
+        </div>
       </article>
       <article class="element">
         <img src="./images/jay-mantri-TFyi0QOx08c-unsplash.jpg" alt="" class="element__image">
-        <h2 class="element__title">Карачаево-Черкессия</h2>
-        <button class="element__like-btn"></button>
+        <div class="element__info">
+          <h2 class="element__title">Мацеста</h2>
+          <input class="element__like-btn"  type="image"  src="./images/element__like-btn.svg"></input>
+        </div>
       </article>
       <article class="element">
         <img src="./images/shifaaz-shamoon-oR0uERTVyD0-unsplash.jpg" alt="" class="element__image">
-        <h2 class="element__title">Карачаево-Черкессия</h2>
-        <button class="element__like-btn"></button>
+        <div class="element__info">
+          <h2 class="element__title">Санкт-Петербург</h2>
+          <input class="element__like-btn"  type="image"  src="./images/element__like-btn.svg"></input>
+        </div>
       </article>
       <article class="element">
         <img src="./images/kunal-shinde--f0YLss50Bs-unsplash.jpg" alt="" class="element__image">
-        <h2 class="element__title">Карачаево-Черкессия</h2>
-        <button class="element__like-btn"></button>
+        <div class="element__info">
+          <h2 class="element__title">Москва</h2>
+          <input class="element__like-btn"  type="image"  src="./images/element__like-btn.svg"></input>
+        </div>
       </article>
       <article class="element">
         <img src="./images/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg" alt="" class="element__image">
-        <h2 class="element__title">Карачаево-Черкессия</h2>
-        <button class="element__like-btn"></button>
+        <div class="element__info">
+          <h2 class="element__title">Абхазия</h2>
+          <input class="element__like-btn"  type="image"  src="./images/element__like-btn.svg"></input>
+        </div>
       </article>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
-  <section class="popup">
+  <!-- <section class="popup">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
       <input type="text" class="popup__input">

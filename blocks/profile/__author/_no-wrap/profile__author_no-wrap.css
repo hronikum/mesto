@@ -1,0 +1,7 @@
+.profile__author_no-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  margin: 0;
+}
