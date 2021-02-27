@@ -1,0 +1,15 @@
+.profile__author-description {
+  font-size: 18px;
+  line-height: 1.22;
+  font-weight: normal;
+  margin: 0;
+  margin-top: 16px;
+}
+
+@media screen and (max-width: 465px) {
+  .profile__author {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 14px;
+  }
+}

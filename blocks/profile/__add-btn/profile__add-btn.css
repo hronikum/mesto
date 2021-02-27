@@ -1,4 +1,20 @@
 .profile__add-btn {
   display: flex;
+  padding: 14px 64px;
   margin-left: auto;
+  height: 22px;
+  width: 22px;
+  border: 2px solid #ffffff;
+
+}
+
+@media screen and (max-width: 600px) {
+  .profile__add-btn {
+    padding: 14px calc(50% - 19px);
+    margin: 0;
+    margin-top: 36px;
+    height: 16px;
+    width: 16px;
+    
+  }
 }
