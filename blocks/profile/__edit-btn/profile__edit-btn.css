@@ -12,6 +12,7 @@
   height: 24px;
   margin-left: 18px;
   align-self: baseline;
+  cursor: pointer;
 }
 
 .profile__edit-btn:hover {

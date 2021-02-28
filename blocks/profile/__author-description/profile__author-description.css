@@ -6,8 +6,8 @@
   margin-top: 16px;
 }
 
-@media screen and (max-width: 465px) {
-  .profile__author {
+@media screen and (max-width: 680px) {
+  .profile__author-description {
     margin-top: 14px;
     text-align: center;
     font-size: 14px;

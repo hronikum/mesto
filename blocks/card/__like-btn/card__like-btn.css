@@ -1,6 +1,6 @@
-.element__like-btn {
+.card__like-btn {
   box-sizing: border-box;
-  background-image: url('../../../images/element__like-btn.svg');
+  background-image: url('../../../images/card__like-btn.svg');
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #ffffff;
@@ -10,6 +10,6 @@
   margin-left: 15px;
 }
 
-.element__like-btn:hover {
+.card__like-btn:hover {
   opacity: .5;
 }
