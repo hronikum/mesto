@@ -5,6 +5,10 @@
   margin-bottom: 41px;
 }
 
+.header__logo:hover{
+  opacity: .6;
+}
+
 @media screen and (max-width: 906px) {
   .header__logo {
     margin-left: 27px;
