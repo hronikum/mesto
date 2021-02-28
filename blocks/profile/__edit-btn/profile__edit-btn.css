@@ -1,8 +1,18 @@
 .profile__edit-btn {
+  box-sizing: border-box;
+  background-image: url('../../../images/profile__edit-btn.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: black;
+  border: 2px solid #ffffff;
   width: 24px;
   height: 24px;
   margin-left: 18px;
   align-self: baseline;
+}
+
+.profile__edit-btn:hover {
+  opacity: .6;
 }
 
 @media screen and (max-width: 465px) {

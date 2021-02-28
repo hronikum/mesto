@@ -11,4 +11,4 @@
 - Перетрут
 
 ### Ссылка на проект
-https://hronikum.github.io/mesto/ [https://hronikum.github.io/mesto/]
+https://hronikum.github.io/mesto/
