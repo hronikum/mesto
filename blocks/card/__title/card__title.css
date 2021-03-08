@@ -1,4 +1,4 @@
-.element__title {
+.card__title {
   overflow: hidden;
   max-width: calc(100% - 47px);
   margin: 0;

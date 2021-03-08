@@ -1,5 +1,5 @@
-.element{
-  height: 361px;
+.card{
+  position: relative;
   margin: 0;
   background-color: #ffffff;
   border-radius: 10px;
