@@ -2,11 +2,12 @@
   display: flex;
   position: absolute;
   box-sizing: border-box;
+  padding:0;
+  margin: 0;
   background-image: url('../../../images/popup__close-btn.svg');
   background-position: center center;
   background-repeat: no-repeat;
   background-color: rgba(0,0,0,0);
-  margin-left: auto;
   top: -40px;
   right: -40px;
   align-self: top;
@@ -23,6 +24,9 @@
 
 @media screen and (max-width: 500px) {
   .popup__close-btn{
+    width: 26px;
+    height: 26px;
+    background-size: 26px;
     right: 0;
   }
 }
