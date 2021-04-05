@@ -1,0 +1,15 @@
+.popup__error{
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  margin-bottom: 13px;
+  height: 25px;
+  font-size: 12px;
+  line-height: 1.21;
+  color: #ff0000;
+  opacity: 0;
+}
+
+.popup__error_visible{
+  opacity: 1;
+}
