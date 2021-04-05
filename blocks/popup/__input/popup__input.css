@@ -2,7 +2,7 @@
   box-sizing: border-box;
   height: 27px;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   padding: 0;
   padding-bottom: 13px;
   border: 0;
@@ -17,4 +17,8 @@
   color: #c4c4c4;
   font-size: 14px;
   line-height: 1.2;
+}
+
+.popup__input:invalid {
+  border-bottom-color: #ff0000;
 }

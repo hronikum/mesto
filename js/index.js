@@ -40,12 +40,25 @@ const imgPreviewPopupCloseBtn = imgPreviewPopup.querySelector('.popup__close-btn
 
 // Базовые функции открытия и закрытия popup
 
+const cleanFormValidation = (targetPopup) => {
+  const formElement = targetPopup.querySelector(settings.formSelector)
+  const buttonElement = targetPopup.querySelector(settings.submitButtonSelector);
+  const inputList = Array.from(targetPopup.querySelectorAll(settings.inputSelector));
+
+  toggleButton(buttonElement, inputList);
+  inputList.forEach(inputElement => {
+    checkInput(formElement, inputElement, settings);
+  })
+}
+
 function closePopup(targetPopup) {
   targetPopup.classList.remove('popup_opened');
+  cleanFormValidation(targetPopup);
 };
 
 function openPopup(targetPopup) {
-  targetPopup.classList.add('popup_opened');
+  targetPopup.classList.add('popup_opened')
+  cleanFormValidation(targetPopup);
 };
 
 // Функции работы с профилем
@@ -160,5 +173,18 @@ profilePopupCloseBtn.addEventListener('click', closeProfilePopup);
 cardPopupCloseBtn.addEventListener('click', closeAddCardPopup);
 imgPreviewPopupCloseBtn.addEventListener('click', closeImgPreviewPopup);
 
+document.addEventListener('keyup', evt => {
+  const openedPopup = document.querySelector('.popup_opened')
+    if((openedPopup !== null) && (evt.key === 'Escape')) {
+      closePopup(openedPopup);
+    }
+  })
+
+  document.addEventListener('click', evt => {
+    const openedPopup = document.querySelector('.popup_opened')
+      if((openedPopup !== null) && (evt.target.classList[0] === 'popup')) {
+        closePopup(openedPopup);
+      }
+    })
 // Блок начального рендеренга
 initialRender();
