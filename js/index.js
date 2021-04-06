@@ -40,28 +40,41 @@ const imgPreviewPopupCloseBtn = imgPreviewPopup.querySelector('.popup__close-btn
 
 // Базовые функции открытия и закрытия popup
 
+function closePopup(targetPopup) {
+  targetPopup.classList.remove('popup_opened');
+};
+
+function openPopup(targetPopup) {
+  targetPopup.classList.add('popup_opened')
+};
+
 const cleanFormValidation = (targetPopup) => {
   const formElement = targetPopup.querySelector(settings.formSelector)
   const buttonElement = targetPopup.querySelector(settings.submitButtonSelector);
   const inputList = Array.from(targetPopup.querySelectorAll(settings.inputSelector));
 
-  if(buttonElement !== null) {
-    toggleButton(buttonElement, inputList);
-  }
+  toggleButton(buttonElement, inputList);
+  
   inputList.forEach(inputElement => {
-    checkInput(formElement, inputElement, settings);
+    hideInputError(formElement, inputElement, settings);
   })
 }
 
-function closePopup(targetPopup) {
-  targetPopup.classList.remove('popup_opened');
-  cleanFormValidation(targetPopup);
-};
+const popupEscCloseHandler = (evt) => {
+  const openedPopup = document.querySelector('.popup_opened')
+  if(evt.key === 'Escape') {
+      closePopup(openedPopup);
+      document.removeEventListener('keyup', popupEscCloseHandler);
+    }
+}
 
-function openPopup(targetPopup) {
-  targetPopup.classList.add('popup_opened')
-  cleanFormValidation(targetPopup);
-};
+const popupClickCloseHandler = (evt) => {
+  const openedPopup = document.querySelector('.popup_opened')
+  if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__container_img')) {
+      closePopup(openedPopup);
+      openedPopup.removeEventListener('click', popupClickCloseHandler);
+  }
+}
 
 // Функции работы с профилем
 
@@ -69,6 +82,9 @@ function showEditProfilePopup() {
   profilePopupInputName.value = profileName.textContent;
   profilePopupInputDesc.value = profileDescription.textContent;
   openPopup(profileEditPopup);
+  cleanFormValidation(profileEditPopup);
+  document.addEventListener('keyup', popupEscCloseHandler);
+  profileEditPopup.addEventListener('click', popupClickCloseHandler);
 };
 
 function updateProfileInfo(evt) {
@@ -88,6 +104,9 @@ function showAddCardPopup() {
   cardAddInputCardName.value = '';
   cardAddInputCardLink.value = '';
   openPopup(cardAddPopup);
+  cleanFormValidation(cardAddPopup);
+  document.addEventListener('keyup', popupEscCloseHandler);
+  cardAddPopup.addEventListener('click', popupClickCloseHandler);
 };
 
 function addCard(evt) {
@@ -146,6 +165,9 @@ function handlePreviewPicture(name, link) {
   imgPreviewTargetImg.alt = name;
   imgPreviewTargetCaption.textContent = name;
   openPopup(imgPreviewPopup);
+  document.addEventListener('keyup', popupEscCloseHandler);
+  imgPreviewPopup.addEventListener('click', popupClickCloseHandler);
+
 };
 
 function closeImgPreviewPopup() {
@@ -175,18 +197,6 @@ profilePopupCloseBtn.addEventListener('click', closeProfilePopup);
 cardPopupCloseBtn.addEventListener('click', closeAddCardPopup);
 imgPreviewPopupCloseBtn.addEventListener('click', closeImgPreviewPopup);
 
-document.addEventListener('keyup', evt => {
-  const openedPopup = document.querySelector('.popup_opened')
-    if((openedPopup !== null) && (evt.key === 'Escape')) {
-      closePopup(openedPopup);
-    }
-  })
 
-  document.addEventListener('click', evt => {
-    const openedPopup = document.querySelector('.popup_opened')
-      if((openedPopup !== null) && (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__container_img'))) {
-        closePopup(openedPopup);
-      }
-    })
 // Блок начального рендеренга
 initialRender();
