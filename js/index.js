@@ -45,7 +45,9 @@ const cleanFormValidation = (targetPopup) => {
   const buttonElement = targetPopup.querySelector(settings.submitButtonSelector);
   const inputList = Array.from(targetPopup.querySelectorAll(settings.inputSelector));
 
-  toggleButton(buttonElement, inputList);
+  if(buttonElement !== null) {
+    toggleButton(buttonElement, inputList);
+  }
   inputList.forEach(inputElement => {
     checkInput(formElement, inputElement, settings);
   })
@@ -182,7 +184,7 @@ document.addEventListener('keyup', evt => {
 
   document.addEventListener('click', evt => {
     const openedPopup = document.querySelector('.popup_opened')
-      if((openedPopup !== null) && (evt.target.classList[0] === 'popup')) {
+      if((openedPopup !== null) && (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__container_img'))) {
         closePopup(openedPopup);
       }
     })
