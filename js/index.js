@@ -42,6 +42,15 @@ const imgPreviewPopupCloseBtn = imgPreviewPopup.querySelector('.popup__close-btn
 
 function closePopup(targetPopup) {
   targetPopup.classList.remove('popup_opened');
+  // Батырбек, спасибо за обратную связь :-)
+  // Помоги плз разобраться, ранее мы удалили из фукнции лишнее
+  // Чтобы она делала только одно дело
+  // Сейчас добавили удаление слушателя
+  // Я понимаю, что это дело опыта и дело тонкое
+  // Но какой вопрос ты задаешь себе, чтобы принять решение
+  // Нужно ли разбивать функцию или все ок?
+  document.removeEventListener('keyup', popupEscCloseHandler);
+
 };
 
 function openPopup(targetPopup) {
@@ -61,18 +70,16 @@ const cleanFormValidation = (targetPopup) => {
 }
 
 const popupEscCloseHandler = (evt) => {
-  const openedPopup = document.querySelector('.popup_opened')
   if(evt.key === 'Escape') {
-      closePopup(openedPopup);
-      document.removeEventListener('keyup', popupEscCloseHandler);
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup);
     }
 }
 
 const popupClickCloseHandler = (evt) => {
-  const openedPopup = document.querySelector('.popup_opened')
   if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__container_img')) {
-      closePopup(openedPopup);
-      openedPopup.removeEventListener('click', popupClickCloseHandler);
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   }
 }
 
@@ -84,7 +91,6 @@ function showEditProfilePopup() {
   openPopup(profileEditPopup);
   cleanFormValidation(profileEditPopup);
   document.addEventListener('keyup', popupEscCloseHandler);
-  profileEditPopup.addEventListener('click', popupClickCloseHandler);
 };
 
 function updateProfileInfo(evt) {
@@ -106,7 +112,6 @@ function showAddCardPopup() {
   openPopup(cardAddPopup);
   cleanFormValidation(cardAddPopup);
   document.addEventListener('keyup', popupEscCloseHandler);
-  cardAddPopup.addEventListener('click', popupClickCloseHandler);
 };
 
 function addCard(evt) {
@@ -166,8 +171,6 @@ function handlePreviewPicture(name, link) {
   imgPreviewTargetCaption.textContent = name;
   openPopup(imgPreviewPopup);
   document.addEventListener('keyup', popupEscCloseHandler);
-  imgPreviewPopup.addEventListener('click', popupClickCloseHandler);
-
 };
 
 function closeImgPreviewPopup() {
@@ -196,6 +199,12 @@ cardAddPopupForm.addEventListener('submit', addCard);
 profilePopupCloseBtn.addEventListener('click', closeProfilePopup);
 cardPopupCloseBtn.addEventListener('click', closeAddCardPopup);
 imgPreviewPopupCloseBtn.addEventListener('click', closeImgPreviewPopup);
+
+// Блок слушателей закрытия попапов через клик
+
+imgPreviewPopup.addEventListener('click', popupClickCloseHandler);
+cardAddPopup.addEventListener('click', popupClickCloseHandler);
+profileEditPopup.addEventListener('click', popupClickCloseHandler);
 
 
 // Блок начального рендеренга
