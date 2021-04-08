@@ -42,19 +42,12 @@ const imgPreviewPopupCloseBtn = imgPreviewPopup.querySelector('.popup__close-btn
 
 function closePopup(targetPopup) {
   targetPopup.classList.remove('popup_opened');
-  // Батырбек, спасибо за обратную связь :-)
-  // Помоги плз разобраться, ранее мы удалили из фукнции лишнее
-  // Чтобы она делала только одно дело
-  // Сейчас добавили удаление слушателя
-  // Я понимаю, что это дело опыта и дело тонкое
-  // Но какой вопрос ты задаешь себе, чтобы принять решение
-  // Нужно ли разбивать функцию или все ок?
   document.removeEventListener('keyup', popupEscCloseHandler);
-
 };
 
 function openPopup(targetPopup) {
-  targetPopup.classList.add('popup_opened')
+  targetPopup.classList.add('popup_opened');
+  document.addEventListener('keyup', popupEscCloseHandler);
 };
 
 const cleanFormValidation = (targetPopup) => {
@@ -90,7 +83,6 @@ function showEditProfilePopup() {
   profilePopupInputDesc.value = profileDescription.textContent;
   openPopup(profileEditPopup);
   cleanFormValidation(profileEditPopup);
-  document.addEventListener('keyup', popupEscCloseHandler);
 };
 
 function updateProfileInfo(evt) {
@@ -111,7 +103,6 @@ function showAddCardPopup() {
   cardAddInputCardLink.value = '';
   openPopup(cardAddPopup);
   cleanFormValidation(cardAddPopup);
-  document.addEventListener('keyup', popupEscCloseHandler);
 };
 
 function addCard(evt) {
@@ -170,7 +161,6 @@ function handlePreviewPicture(name, link) {
   imgPreviewTargetImg.alt = name;
   imgPreviewTargetCaption.textContent = name;
   openPopup(imgPreviewPopup);
-  document.addEventListener('keyup', popupEscCloseHandler);
 };
 
 function closeImgPreviewPopup() {
