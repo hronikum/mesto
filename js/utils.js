@@ -10,6 +10,17 @@ export const settings = {
   errorClass: 'popup__error_visible'
 };
 
+// Твой коммент: В данном файле следует оставить только те функции и переменные, 
+// которые экспортируются. Остальной функционал следует поместить в index.js
+
+// Мой ответ:
+// Если сделать так, как ты говоришь, то придется из index.js все импортировать сюда обратно.
+// Это сделает код запутанным и состоящим из взаимных импортов.
+// Этот вопрос обсуждался с Наставником курса, и такое решение было одним из вариантов
+// На следующем спринте мы как раз займемся структурой проекта и там все сделаем красиво,
+// но сейчас такое решение не противоречит условиям задачи. Либо мне надо применить знания
+//  из следующего спринта. Но тогда все окончательно запутаются :-)
+
 // Блок profile
 
 const profileName = document.querySelector('.profile__author-name');
@@ -25,7 +36,7 @@ const cardAddBtn = document.querySelector('.profile__add-btn');
 // // Блок editProfilePopup
 
 const profileEditPopup = document.querySelector('#editProfilePopup');
-const profileEditPopupForm = profileEditPopup.querySelector('#profileForm');
+export const profileEditPopupForm = profileEditPopup.querySelector('#profileForm');
 const profilePopupCloseBtn = profileEditPopup.querySelector('.popup__close-btn');
 const profilePopupInputName = profileEditPopup.querySelector('#inputName');
 const profilePopupInputDesc = profileEditPopup.querySelector('#inputDescription');
@@ -33,7 +44,7 @@ const profilePopupInputDesc = profileEditPopup.querySelector('#inputDescription'
 // // Блок addCardPopup
 
 const cardAddPopup = document.querySelector('#addCardPopup');
-const cardAddPopupForm = cardAddPopup.querySelector('#addCardPopupForm');
+export const cardAddPopupForm = cardAddPopup.querySelector('#addCardPopupForm');
 const cardAddInputCardName = cardAddPopup.querySelector('#inputCardName');
 const cardAddInputCardLink = cardAddPopup.querySelector('#inputCardLink');
 const cardPopupCloseBtn = cardAddPopup.querySelector('.popup__close-btn');

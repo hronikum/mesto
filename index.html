@@ -14,6 +14,21 @@
       </a>
     </header>
     <main class="main">
+      <!-- 
+        
+        Привет, меня зовут Костя, здесь я напишу свои вопросы по пунктам, которые ты обозначил в комментарии к ревью:
+        Твой коммент: 
+        При открытии попапа добавления карточки поля ввода сразу подсвечиваются красным.
+        Это следует исправить.
+
+        Мой вопрос: 
+        Но почему? Поля обязательны, они пусты, их надо заполнить. Логично, что они сразу
+        сразу подсвечиваются красным, так и должно быть. Если следовать твоей логике, и 
+        менять их состояние только после начала ввода, то тогда и кнопку отправки надо 
+        изначально показывать доступной, и только после ввода делать неактивной. Мне кажется 
+        это не верным.
+      
+      -->
       <section class="profile">
         <img class="profile__avatar" src="./images/avatar.jpg" alt="аватар пользователя">
         <div class="profile__author">
@@ -45,9 +60,9 @@
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form action="./" class="popup__form" name="profileForm" id="profileForm" novalidate>
-          <input type="text" class="popup__input" value="" name="inputName" id="inputName" minlength="2" maxlength="40" required>
+          <input type="text" class="popup__input" value="" name="inputName" id="inputName" minlength="2" maxlength="40" placeholder="Имя" required>
           <span class="popup__error" id="inputName-error"> </span>
-          <input type="text" class="popup__input" value="" name="inputDescription" id="inputDescription" minlength="2" maxlength="200" required>
+          <input type="text" class="popup__input" value="" name="inputDescription" id="inputDescription" minlength="2" maxlength="200" placeholder="Вид деятельности" required>
           <span class="popup__error" id="inputDescription-error"></span>
           <button class="popup__btn" type="submit" id="editProfilePopupBtn">Сохранить</button>
         </form> 
