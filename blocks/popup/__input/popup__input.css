@@ -19,6 +19,3 @@
   line-height: 1.2;
 }
 
-.popup__input:invalid {
-  border-bottom-color: #ff0000;
-}

@@ -1,4 +1,4 @@
-import {settings} from './utils.js'
+import {settings} from './index.js'
 
 const showInputError = (formElement, inputElement, settings) => {
   const errorInputElement = formElement.querySelector(`#${inputElement.id}-error`);
