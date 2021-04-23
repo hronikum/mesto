@@ -1,6 +1,6 @@
-import {handlePreviewPicture} from './utils.js'
+import {handlePreviewPicture} from './index.js'
 
-export class Card {
+export default class Card {
 
   constructor(card, cardTemplateSelector) {
     this._name = card.name;

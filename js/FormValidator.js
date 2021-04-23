@@ -1,4 +1,4 @@
-export class FormValidator {
+export default  class FormValidator {
   
   constructor(settings, formElement) {
     this._formElement = formElement;
@@ -38,12 +38,14 @@ export class FormValidator {
     const errorInputElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     errorInputElement.textContent = inputElement.validationMessage;
     errorInputElement.classList.add(this._settings.errorClass);
+    inputElement.classList.add('popup__input_type_error')
   }
 
   _hideInputError(inputElement) {
     const errorInputElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     errorInputElement.textContent = '';
     errorInputElement.classList.remove(this._settings.errorClass);
+    inputElement.classList.remove('popup__input_type_error')
   }
 
   _hasInvalidInput (inputList) {
