@@ -1,7 +1,6 @@
 import Card from './Card.js'
 import FormValidator from './FormValidator.js'
 import {initialCards} from './initial-cards.js';
-import {cleanFormValidation} from './validate.js'
 
 import {
   closePopup,
@@ -9,59 +8,32 @@ import {
   popupEscCloseHandler
 } from './utils.js'
 
+import {
+  settings,
+  cards,
+  profileEditPopupForm,
+  cardAddPopupForm,
+  profileEditBtn,
+  profilePopupCloseBtn,
+  cardAddBtn,
+  cardPopupCloseBtn,
+  imgPreviewPopupCloseBtn,
+  cardAddPopup,
+  profileEditPopup,
+  cardAddInputCardName,
+  cardAddInputCardLink,
+  profilePopupInputDesc,
+  profilePopupInputName,
+  profileName,
+  profileDescription
+} from './utils/constants.js'
 
-export const settings = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__btn',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-};
-
-// ________
-
-// Блок profile
-
-const profileName = document.querySelector('.profile__author-name');
-const profileDescription = document.querySelector('.profile__author-description');
-const profileEditBtn = document.querySelector('.profile__edit-btn');
-
-// // Блок cards
-
-const cards = document.querySelector('.cards');
-const newCard = cardTemplate.querySelector('.card');
-const cardAddBtn = document.querySelector('.profile__add-btn');
-
-// // Блок editProfilePopup
-
-const profileEditPopup = document.querySelector('#editProfilePopup');
-export const profileEditPopupForm = profileEditPopup.querySelector('#profileForm');
-const profilePopupCloseBtn = profileEditPopup.querySelector('.popup__close-btn');
-const profilePopupInputName = profileEditPopup.querySelector('#inputName');
-const profilePopupInputDesc = profileEditPopup.querySelector('#inputDescription');
-
-// // Блок addCardPopup
-
-const cardAddPopup = document.querySelector('#addCardPopup');
-export const cardAddPopupForm = cardAddPopup.querySelector('#addCardPopupForm');
-const cardAddInputCardName = cardAddPopup.querySelector('#inputCardName');
-const cardAddInputCardLink = cardAddPopup.querySelector('#inputCardLink');
-const cardPopupCloseBtn = cardAddPopup.querySelector('.popup__close-btn');
-
-// // Блок popupImg
-
-const imgPreviewPopup = document.querySelector('#imgPreviewPopup');
-const imgPreviewPopupCloseBtn = imgPreviewPopup.querySelector('.popup__close-btn');
-const imgPreviewTargetImg = imgPreviewPopup.querySelector('.popup__img');
-const imgPreviewTargetCaption = imgPreviewPopup.querySelector('.popup__img-caption');
-
-// // Функции работы с профилем
+// Функции работы с профилем
 
 function showEditProfilePopup() {
   profilePopupInputName.value = profileName.textContent;
   profilePopupInputDesc.value = profileDescription.textContent;
-  cleanFormValidation(profileEditPopup);
+  editProfileFormValidator.cleanFormValidation();
   openPopup(profileEditPopup);
 };
 
@@ -78,10 +50,10 @@ function closeProfilePopup() {
 
 // // Функции работы с карточками
 
-export const showAddCardPopup = () => {
+const showAddCardPopup = () => {
   cardAddInputCardName.value = '';
   cardAddInputCardLink.value = '';
-  cleanFormValidation(cardAddPopup);
+  addCardFormValidator.cleanFormValidation();
   openPopup(cardAddPopup);
 };
 
@@ -95,7 +67,7 @@ const addCard = (evt) => {
   const card = {};
   card.name = cardAddInputCardName.value;
   card.link = cardAddInputCardLink.value;
-  const newCard = createCard(card, '#cardTemplate');
+  const newCard = createCard(card, settings.cardTemplate);
   cards.prepend(newCard.render())
   closePopup(cardAddPopup);
 };
@@ -112,13 +84,6 @@ const popupClickCloseHandler = (evt) => {
     closePopup(openedPopup);
   }
 }
-
-export const handlePreviewPicture = (name, link) => { 
-  imgPreviewTargetImg.src = link; 
-  imgPreviewTargetImg.alt = name; 
-  imgPreviewTargetCaption.textContent = name; 
-  openPopup(imgPreviewPopup); 
-}; 
  
 const closeImgPreviewPopup = () => { 
   closePopup(imgPreviewPopup); 
@@ -148,7 +113,7 @@ profileEditPopup.addEventListener('click', popupClickCloseHandler);
 
 
 initialCards.forEach( card => {
-  const newCard = createCard(card, '#cardTemplate')
+  const newCard = createCard(card, settings.cardTemplate)
   cards.append(newCard.render());
 })
 
