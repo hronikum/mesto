@@ -38,14 +38,14 @@ export default  class FormValidator {
     const errorInputElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     errorInputElement.textContent = inputElement.validationMessage;
     errorInputElement.classList.add(this._settings.errorClass);
-    inputElement.classList.add('popup__input_type_error')
+    inputElement.classList.add(this._settings.inputErrorClass)
   }
 
   _hideInputError(inputElement) {
     const errorInputElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     errorInputElement.textContent = '';
     errorInputElement.classList.remove(this._settings.errorClass);
-    inputElement.classList.remove('popup__input_type_error')
+    inputElement.classList.remove(this._settings.inputErrorClass)
   }
 
   _hasInvalidInput (inputList) {
@@ -68,6 +68,13 @@ export default  class FormValidator {
     } else {
       this._showInputError(inputElement);
     }
+  }
+
+  cleanFormValidation = () => {
+    this._toggleButton();
+    this._inputList.forEach(inputElement => {
+      this._hideInputError(inputElement);
+    })
   }
 
   enableValidation() {

@@ -1,4 +1,7 @@
-import {handlePreviewPicture} from './index.js'
+import {openPopup} from './utils.js'
+import {imgPreviewTargetImg,
+  imgPreviewTargetCaption
+} from './utils/constants.js'
 
 export default class Card {
 
@@ -33,9 +36,16 @@ export default class Card {
     this._cardLikeBtn.classList.toggle('card__like-btn_active');
   }
 
+  _handlePreviewPicture() { 
+    imgPreviewTargetImg.src = this._link; 
+    imgPreviewTargetImg.alt = this._name; 
+    imgPreviewTargetCaption.textContent = this._name; 
+    openPopup(imgPreviewPopup); 
+  }; 
+
   _setEventListeners() {
     this._cardImg.addEventListener('click', () => {
-      handlePreviewPicture(this._name, this._link);
+      this._handlePreviewPicture();
     });
   
     this._cardLikeBtn.addEventListener('click', evt => {
